@@ -76,8 +76,8 @@ class RegisterController extends Controller
         'password' => Hash::make($data['password']),
         'email_verified_at' => now(),
         // 'api_token' => bin2hex( openssl_random_pseudo_bytes( 20 ) ),
-        // 'api_token' => bin2hex(random_bytes(30)),        
-        'api_token' => Str::random(30),
+        'api_token' => bin2hex(random_bytes(30)),        
+        // 'api_token' => Str::random(30),
         'remember_token' => Str::random(10),
     ]);
     

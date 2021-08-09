@@ -24,8 +24,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
-        $Posts = Post::all();
+           $Posts = Post::orderBy('created_at', 'desc')->take(10)->get();
+
+        // $Posts =  Post::latest()->get();//Post::latest()->all();
+
         // $author = Author::where('id',$id)->first();
         return view('post.index', compact('Posts'));
     }
