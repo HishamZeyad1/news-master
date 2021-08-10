@@ -36,7 +36,7 @@
             @php
                 $i = 0;
             @endphp
-            @foreach ($Categories as $item)
+            @foreach ($categories as $item)
             <tr>
                 <th scope="row">{{$i++}}</th>
                 <td>{{ $item->name }}</td>
@@ -78,7 +78,7 @@
         </tbody>
       </table>
 
-      {{-- {!! $Categories->links() !!} --}}
+      {{-- {!! $c->links() !!} --}}
       
   </div>
 
