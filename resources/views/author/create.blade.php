@@ -6,7 +6,8 @@
     <div class="card ">
 
         <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p class="card-text">  <span><a href="{{ route('author.index')}}"> back</a>It uses utility classes for typography and spacing to space content out within the larger container. </span> </p>
+
         </div>
       </div>
 </div>

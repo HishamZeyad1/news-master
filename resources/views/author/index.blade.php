@@ -4,8 +4,8 @@
 
 
 <div class="jumbotron container">
-
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  {{-- <p class="card-text">  <span><a href="{{ route('admin')}}"> back</a> </span></p> --}}
+    <p><span><a href="{{ route('admin')}}"> back</a> </span> It uses utility classes for typography and spacing to space content out within the larger container.</p>
     <a class="btn btn-primary btn-lg" href="{{ route('author.create')}}" role="button">Create  </a>
     {{-- <a class="btn btn-primary btn-lg" href="{{ route('product.trash')}}" role="button">Trash  </a> --}}
 
@@ -56,8 +56,12 @@
             @php
               // $category_name= $item->category;
               // $category_id=$item->category_id;
+              if ($item->category_id==$item->category->id) {
+                $item->category->name;
+              }
             @endphp
-                <td>{{$item->category->name}}   </td> 
+                <td>{{ $item->category->name;}}</td> 
+
 {{-- App\Models\Category::where('id',$item->category_id)->get() --}}
                  <td>
 

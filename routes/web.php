@@ -22,7 +22,7 @@ Route::group(['middleware'=>['auth','admin']],function(){
 
     Route::get('admin', function () {
         return view('admin.dashboard');
-    });
+    })->name('admin');
 });
 // Route::get('/register','App\Http\Controllers\RegisterController@create')->name('register');
 

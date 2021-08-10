@@ -6,8 +6,9 @@
     <div class="card ">
 
         <div class="card-body">       
+          <p> <span><a href="{{ route('comment.index')}}"> back</a> </span>  It uses utility classes for typography and spacing to space content out within the larger container.</p>
 
-          <p class="card-text">  <span><a href="{{ route('comment.index')}}"> back</a> </span>  {{ $comment->content  }}  </p>
+          {{-- <p class="card-text">  <span><a href="{{ route('comment.index')}}"> back</a> </span>  {{ $comment->content  }}  </p> --}}
         </div>
       </div>
 </div>
@@ -26,9 +27,12 @@
           <div class="form-group">
             <label for="user_id">User</label>
             <select class="form-control" name="user_id" id="user_id" disabled>
-                <option  value="{{$comment->user->name}}" >
-                  {{$comment->user->name}}
+                <option  value="{{$comment->user ==null?"unknown":$comment->user->name}}" >
+                  {{-- {{$comment->user->name}} --}}
+                  {{ $comment->user ==null?"unknown":$comment->user->name}} 
                 </option>
+                {{-- <td>{{ $comment->user ==null?"unknown":$comment->user->name}}   </td>  --}}
+
             </select>
           </div>
 

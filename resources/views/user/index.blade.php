@@ -4,6 +4,7 @@
 
 
 <div class="jumbotron container">
+  <p> <span><a href="{{ route('admin')}}"> back</a> </span>  It uses utility classes for typography and spacing to space content out within the larger container.</p>
 
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
     {{-- <a class="btn btn-primary btn-lg" href="{{ route('user.create')}}" role="button">Create  </a> --}}

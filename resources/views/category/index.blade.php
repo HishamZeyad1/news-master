@@ -4,8 +4,8 @@
 
 
 <div class="jumbotron container">
-
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  {{-- <p class="card-text">  <span><a href="{{ route('admin')}}"> back</a> </span></p> --}}
+    <p> <span><a href="{{ route('admin')}}"> back</a> </span>  It uses utility classes for typography and spacing to space content out within the larger container.</p>
     <a class="btn btn-primary btn-lg" href="{{ route('category.create')}}" role="button">Create  </a>
     {{-- <a class="btn btn-primary btn-lg" href="{{ route('product.trash')}}" role="button">Trash  </a> --}}
 

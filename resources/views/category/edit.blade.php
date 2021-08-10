@@ -7,7 +7,7 @@
 
         <div class="card-body">
 
-          <p class="card-text">  <span><a href="{{ route('category.index')}}"> back</a> </span>  {{ $category->name  }}  </p>
+          <p class="card-text">  <span><a href="{{ route('category.index')}}"> back</a>It uses utility classes for typography and spacing to space content out within the larger container. </span>  </p>
         </div>
       </div>
 </div>

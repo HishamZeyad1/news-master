@@ -5,8 +5,8 @@
 
 <div class="jumbotron container">
 
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    {{-- <a class="btn btn-primary btn-lg" href="{{ route('comment.create')}}" role="button">Create  </a> --}}
+  <p> <span><a href="{{ route('admin')}}"> back</a> </span>  It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  {{-- <a class="btn btn-primary btn-lg" href="{{ route('comment.create')}}" role="button">Create  </a> --}}
     {{-- <a class="btn btn-primary btn-lg" href="{{ route('product.trash')}}" role="button">Trash  </a> --}}
 
   </div>
@@ -42,7 +42,8 @@
                 <th scope="row">{{$i++ }}</th>
                 <td>{{ $item->content }}</td>
                 <td>{{ $item->date_written }}   </td>
-                <td>{{ $item->user->name }}</td>
+                {{-- <td>{{ $item->user->name }}</td> --}}
+                <td>{{ $item->user ==null?"unknown":$item->user->name}}   </td> 
 
                 <td>{{$item->post->title}}   </td> 
                  <td>
