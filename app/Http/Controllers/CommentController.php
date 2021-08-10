@@ -22,7 +22,8 @@ class CommentController extends Controller
         //
         $comments = Comment::all();
         // $author = Author::where('id',$id)->first();
-        return view('comment.index', compact('comments'));
+        return view('comment.index', 
+        compact('comments'));
     }
 
     /**
