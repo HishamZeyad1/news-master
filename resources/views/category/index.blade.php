@@ -1,4 +1,4 @@
-@extends('Category.layout')
+@extends('category.layout')
 
 @section('content')
 
