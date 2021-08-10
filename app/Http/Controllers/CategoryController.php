@@ -20,8 +20,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $Categories = Category::all();
-        return view('category.index',compact('Categories'));
+        $categories = Category::all();
+        return view('category.index',compact('categories'));
     }
 
     /**

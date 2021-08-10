@@ -37,7 +37,7 @@
             @php
                 $i = 0;
             @endphp
-            @foreach ($Comments as $item)
+            @foreach ($comments as $item)
             <tr>
                 <th scope="row">{{$i++ }}</th>
                 <td>{{ $item->content }}</td>

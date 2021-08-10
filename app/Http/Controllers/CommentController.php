@@ -20,9 +20,9 @@ class CommentController extends Controller
     public function index()
     {
         //
-        $Comments = Comment::all();
+        $comments = Comment::all();
         // $author = Author::where('id',$id)->first();
-        return view('comment.index', compact('Comments'));
+        return view('comment.index', compact('comments'));
     }
 
     /**
