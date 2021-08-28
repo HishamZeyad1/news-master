@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Resources\CommentResource;
-use App\Models\comment;
+use App\Models\Comment;
 use Carbon\Carbon;
 
 class CommentController extends Controller
