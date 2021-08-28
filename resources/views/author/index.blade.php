@@ -33,7 +33,7 @@
             <th scope="col">Nationality</th>
             <th scope="col">Career</th>
             <th scope="col">Category</th><!-- category_id-->
-            <th scope="col" style="width: 350px;text-align:center">Actions</th>
+            <th scope="col" style="width: 400px;text-align:center">Actions</th>
           </tr>
         </thead>
         <tbody>
