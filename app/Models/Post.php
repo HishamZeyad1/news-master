@@ -27,4 +27,9 @@ class Post extends Model
     public function category(){
         return $this->belongsTo( Category::class );
     }
+
+    public function getFeaturedImageAttribute()
+    {
+        return env('APP_URL') . $this->attributes['featured_image'];
+    }
 }

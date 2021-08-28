@@ -9,16 +9,23 @@ class Author extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'avatar',
-        'DOB',
-        'nationality',
-        'career',
-        'category_id'
-    ];
+
+    // protected $fillable = [
+    //     'name',
+    //     'avatar',
+    //     'DOB',
+    //     'nationality',
+    //     'career',
+    //     'category_id'
+    // ];
+    protected $guarded =[];
+    protected $with =['posts'];
     public function posts(){
         return $this->hasMany( Post::class );
+    }
+    public function getAvatarAttribute()
+    {
+        return env('APP_URL') . $this->attributes['avatar'];
     }
 
     // public function comments(){

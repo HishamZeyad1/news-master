@@ -45,7 +45,7 @@
                 {{-- <td>{{ $item->user->name }}</td> --}}
                 <td>{{ $item->user ==null?"unknown":$item->user->name}}   </td> 
 
-                <td>{{$item->post->title}}   </td> 
+                <td>{{$item->post==null?"unknown":$item->post->title}}   </td> 
                  <td>
 
                     <div class="row" style="margin-left:20%">

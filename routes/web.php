@@ -24,6 +24,10 @@ Route::group(['middleware'=>['auth','admin']],function(){
         return view('admin.dashboard');
     })->name('admin');
 });
+
+
+
+
 // Route::get('/register','App\Http\Controllers\RegisterController@create')->name('register');
 
 // Route::get('/category','App\Http\Controllers\CategoryController@index');
@@ -51,7 +55,9 @@ Route::get('/author/edit/{id}', 'App\Http\Controllers\AuthorController@edit' )->
 Route::put('/author/update/{id}', 'App\Http\Controllers\AuthorController@update' )->name('author.update');
 Route::delete('/author/destroy/{id}', 'App\Http\Controllers\AuthorController@destroy' )->name('author.destroy');
 
-
+Route::get("/user",function(){
+    return auth()->user();
+})->middleware('auth');
 Route::get('/post', 'App\Http\Controllers\PostController@index' )->name('post.index');
 Route::get('/post/create', 'App\Http\Controllers\PostController@create' )->name('post.create');
 Route::post('/post/store', 'App\Http\Controllers\PostController@store' )->name('post.store');

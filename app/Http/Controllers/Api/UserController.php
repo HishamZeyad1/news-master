@@ -32,6 +32,7 @@ class UserController extends Controller
             $users =  \App\Models\User::paginate(env('AUTHORS_PER_PAGE') );
             return new UsersResource( $users);
             
+            
     }
 
     /**
@@ -60,7 +61,9 @@ class UserController extends Controller
         $user->email = $request->email;
        $user->password = Hash::make( $request->password );
        $user->usertype="user";
-        // $user->attributes['password'] = \Hash::make($password);
+       $user->avatar="https://source.unsplash.com/random";
+
+    // $user->attributes['password'] = \Hash::make($password);
         // // to generate a new token for the new user
         $user->api_token = Str::random(12);//str_random(60);
 
@@ -116,8 +119,14 @@ class UserController extends Controller
         ] );
         $credentials = $request->only('email' , 'password' );
         if( Auth::attempt( $credentials ) ){
+            // return Auth::attempt( $credentials );
             $user = User::where( 'email' , $request->get( 'email' ) )->first();
-           return new TokenResource( [ 'token' => $user->api_token] );
+        //    return new TokenResource( [ 'token' => $user->api_token] );
+        //    return new UserResource($user);
+           return [
+            'token' => new TokenResource( ['token' =>$user->api_token]) ,
+            'user' => new UserResource($user),
+        ];
             // new TokenResource( [ 'token' => $user->api_token] );
             // return ['token' => $token->plainTextToken];
 
@@ -154,22 +163,30 @@ class UserController extends Controller
         
         $user = User::whereId($id)->first();
         if( $request->has('name') ){
-            $user->name = $request->get( 'name' );
+            $user->name = $request->get( 'name' );//$request->name;
         }
         // if( $request->has( 'avatar' ) ){
         //     $user->avatar = $request->get( 'avatar' );
         // }
 
-        if( $request->hasFile('avatar') ){
-            $featuredImage = $request->file( 'avatar' );
-            $filename = time().$featuredImage->getClientOriginalName();
-            Storage::disk('images')->putFileAs(
-                $filename,
-                $featuredImage,
-                $filename
-            );
-            $user->avatar = url('/') . '/images/' .$filename;
+        // if( $request->hasFile('avatar') ){
+        //     $featuredImage = $request->file( 'avatar' );
+        //     $filename = time().$featuredImage->getClientOriginalName();
+        //     Storage::disk('images')->putFileAs(
+        //         $filename,
+        //         $featuredImage,
+        //         $filename
+        //     );
+        //     $user->avatar = url('/') . '/images/' .$filename;//uploads
+        // }
+
+        if ($request->has('avatar')) {
+            $avatar = $request->avatar;
+            $newAvatar = time().$avatar->getClientOriginalName();
+            $avatar->move('uploads/users',$newAvatar);
+            $user->avatar ='uploads/users/'.$newAvatar ;
         }
+    
 
 
         $user->save();

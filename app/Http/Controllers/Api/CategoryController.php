@@ -19,7 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return new CategoriesResource( \App\Models\Category::paginate( env('CATEGORIES_PER_PAGE') ) );
+        return CategoriesResource::collection( \App\Models\Category::paginate(env('CATEGORIES_PER_PAGE')) );
 
     }
 
@@ -80,6 +80,5 @@ class CategoryController extends Controller
 
         // $posts = $category->posts()->paginate( env('POSTS_PER_PAGE') );
         // return new PostsResource( $posts );
-
     }
 }

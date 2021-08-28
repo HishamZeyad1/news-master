@@ -74,6 +74,8 @@ class RegisterController extends Controller
         'email' => $data['email'],
         'usertype'=>'user',
         'password' => Hash::make($data['password']),
+        "avatar"=>"https://source.unsplash.com/random",
+
         'email_verified_at' => now(),
         // 'api_token' => bin2hex( openssl_random_pseudo_bytes( 20 ) ),
         'api_token' => bin2hex(random_bytes(30)),        
