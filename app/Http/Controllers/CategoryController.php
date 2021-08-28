@@ -151,10 +151,11 @@ class CategoryController extends Controller
         }
                 }
         if($category->posts!=null){
-            foreach($category->posts as $post){
+            foreach($category->posts as $post){//********** */
+
 
                 if($post->comments!=null){//$category->posts
-                    foreach($category->posts->comments as $comment){
+                    foreach($post->comments as $comment){
                         $comment->delete();
                     // $category->authors->delete();
                 }         
