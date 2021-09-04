@@ -46,6 +46,11 @@ use App\Http\Controllers\Api;
     Route::get( 'categories/{id}' , 'App\Http\Controllers\Api\CategoryController@show' );
     
     Route::get( 'posts/categories/{id}' , 'App\Http\Controllers\Api\CategoryController@posts' );
+    // Route::post( 'posts/categories/{id}/{myarray}' , 'App\Http\Controllers\Api\CategoryController@posts1' );
+    
+    Route::post('posts/categories','App\Http\Controllers\Api\CategoryController@posts1');
+
+
     Route::get( 'posts' , 'App\Http\Controllers\Api\PostController@index' );
     Route::get( 'posts/{id}' , 'App\Http\Controllers\Api\PostController@show' );
     Route::get( 'comments/posts/{id}' , 'App\Http\Controllers\Api\PostController@comments');

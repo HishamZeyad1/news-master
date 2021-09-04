@@ -61,7 +61,7 @@
           </div>
 
           <div class="form-group">
-            <label for="author_id">Category</label>
+            <label for="author_id">Author</label>
             <select class="form-control" name="author_id" id="author_id">
                 @foreach ($authors as $item)
                 <option  value="{{$item->id}}" >
