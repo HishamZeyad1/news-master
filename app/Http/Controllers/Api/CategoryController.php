@@ -104,13 +104,23 @@ class CategoryController extends Controller
                 // dd($category_ids);
             // $category_ids = json_decode($request->data, true);
                 // dd($category_ids);
-            $posts=Post::whereIn('category_id',$category_ids)->orderBy('date_written', 'asc')->get();
+            $posts=Post::whereIn('category_id',$category_ids)->orderBy('date_written', 'desc')->get();
             // $posts = $category->posts()->orderBy('date_written', 'asc')->paginate( env('POSTS_PER_PAGE') );;
 
             // $posts = Post::whereIn('category_id',$category_ids)::with(['comments' , 'author' , 'category'])->get();
 
           return PostResource::collection($posts);
   }
+
+
+  public function posts2(Request $request){
+    $category_ids = array_map('intval', json_decode($request->categories, true));
+
+    $posts=Post::whereIn('category_id',$category_ids)->orderBy('votes_up', 'desc')->get();
+
+  return PostResource::collection($posts);
+}
+
 }
 
 

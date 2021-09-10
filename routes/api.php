@@ -49,6 +49,7 @@ use App\Http\Controllers\Api;
     // Route::post( 'posts/categories/{id}/{myarray}' , 'App\Http\Controllers\Api\CategoryController@posts1' );
     
     Route::post('posts/categories','App\Http\Controllers\Api\CategoryController@posts1');
+    Route::post('popularposts/categories','App\Http\Controllers\Api\CategoryController@posts2');
 
 
     Route::get( 'posts' , 'App\Http\Controllers\Api\PostController@index' );
@@ -68,7 +69,7 @@ Route::middleware('auth:api')->group( function(){
     Route::post( 'posts' , 'App\Http\Controllers\Api\PostController@store' );
     Route::post( 'posts/{id}' , 'App\Http\Controllers\Api\PostController@update'  );
     Route::delete( 'posts/{id}' , 'App\Http\Controllers\Api\PostController@destroy'  );
-    Route::post( 'comments/posts/{id}' , 'App\Http\Controllers\Api\CommentController@store' );
+    Route::post( 'comments/posts' , 'App\Http\Controllers\Api\CommentController@store' );
     Route::post( 'votes/posts/{id}' , 'App\Http\Controllers\Api\PostController@votes' );
 } ) ;
 
